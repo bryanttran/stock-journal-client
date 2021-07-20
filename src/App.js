@@ -10,9 +10,13 @@ import { useHistory } from "react-router-dom";
 import { onError } from "./libs/errorLib";
 
 function App() {
+  // Authentication for user for stock-journal
   const [isAuthenticated, userHasAuthenticated] = useState(false);
   // Used on loadup to check if there is an existing session
   const [isAuthenticating, setIsAuthenticating] = useState(true);
+  // Authenitcation for TD
+  // Recording the account List
+  const [tier, setTier] = useState("");
 
   const history = useHistory();
 
@@ -30,7 +34,6 @@ function App() {
         onError(e);
       }
     }
-  
     setIsAuthenticating(false);
   }
 
@@ -53,7 +56,12 @@ function App() {
           <Navbar.Collapse className="justify-content-end">
             <Nav activeKey={window.location.pathname}>
             {isAuthenticated ? (
-              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+              <>
+                <LinkContainer to="/settings">
+                  <Nav.Link>Settings</Nav.Link>
+                </LinkContainer>
+                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+             </>
             ) : (
               <>
                 <LinkContainer to="/signup">
@@ -67,7 +75,7 @@ function App() {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
+        <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated, tier, setTier }}>
           <Routes />
         </AppContext.Provider>
       </div>

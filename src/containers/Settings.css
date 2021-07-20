@@ -1,0 +1,59 @@
+.plans{
+  display: block;
+  text-align: center;
+}
+
+.plan{
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: beige;
+  border: solid 1px black;
+  width: 45%;
+  min-height: 400px;
+  overflow: auto;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+}
+
+.current-plan {
+  font-weight: bold;
+  color: black;
+}
+
+.disabled {
+  color: grey;
+}
+
+
+@media screen and (max-width:992px) {
+  .plan{
+    width: 90%;
+  }
+}
+
+.features{
+  text-align: left;
+}
+
+.btn-pre {
+  background-color: #00d885;
+  border: 1px solid #00d885;
+}
+.btn-pre:hover, .btn-pre:focus, .btn-pre:active, .btn-pre.active, .open>.dropdown-toggle.btn-pre {
+  color: #fff;
+  background-color: #03c279;
+  border-color: #03c279; /*set the color you want here*/
+}
+
+@media all and (min-width: 480px) {
+    .Settings {
+      padding: 60px 0;
+    }
+  
+    .Settings form {
+      margin: 0 auto;
+      max-width: 480px;
+    }
+  }
